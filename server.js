@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const CORS_WHITELIST = require('./constants/frontend');
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: 'https://lindas-shop.herokuapp.com/',
   optionsSuccessStatus: 200
 };
 
