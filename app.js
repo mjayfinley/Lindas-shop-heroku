@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const pg = require('pg')
 const bodyParser = require('body-parser')
-const PORT = process.env.PORT || 5000
 let models = require('./models')
 
 app.use(bodyParser.urlencoded({extended : false}))
@@ -17,7 +16,7 @@ app.use(function(req,res, next) {
 
 
 
-//const SERVER_CONFIGS = require('./constants/server')
+const SERVER_CONFIGS = require('./constants/server')
 
 const configureServer = require('./server')
 const configureRoutes = require('./routes')
@@ -79,9 +78,9 @@ app.delete('/product/:productId', (req,res) => {
 })
 
 
-app.listen(PORT, error => {
+app.listen(SERVER_CONFIGS.PORT, error => {
   if (error) throw error
-  console.log("Server running on port: " + PORT)
+  console.log("Server running on port: " + SERVER_CONFIG.PORT)
 })
 
 //after all my routes//
