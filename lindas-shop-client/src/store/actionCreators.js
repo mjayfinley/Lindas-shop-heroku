@@ -4,7 +4,7 @@ import * as actionCreators from './actionCreators.js'
 export const populateProductsUsingThunk = () => {
   return (dispatch) => {
 
-    fetch("http://localhost:8080/products")
+    fetch("https://lindas-shop.herokuapp.com/products")
     .then(response => response.json())
     .then((json) => {
       dispatch({type : actionTypes.POPULATE_PRODUCTS, products : json})
@@ -14,7 +14,7 @@ export const populateProductsUsingThunk = () => {
 
 export const addProductUsingThunk = (product) => {
   return (dispatch) => {
-    fetch("http://localhost:8080/add-product", {
+    fetch("https://lindas-shop.herokuapp.com/add-product", {
       method : "POST",
       headers : {
         'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ export const addProductUsingThunk = (product) => {
 export const populateCart = () => {
   return (dispatch) => {
 
-    fetch("http://localhost:8080/cart")
+    fetch("https://lindas-shop.herokuapp.com/cart")
     .then(response => response.json())
     .then((json) => {
       dispatch({type : actionTypes.POPULATE_CART, cart : json})
@@ -46,7 +46,7 @@ export const populateCart = () => {
 export const loadFirstPage = () => {
   return (dispatch) => {
 
-    fetch("http://localhost:8080/products")
+    fetch("https://lindas-shop.herokuapp.com/products")
     .then(response => response.json())
     .then((json) => {
       dispatch(actionCreators.onChangePage(json.slice(0, 6)))
@@ -63,7 +63,7 @@ export const showProductDetails = (product) => {
 
 export const addToCart = (product) => {
   return (dispatch) => {
-    fetch("http://localhost:8080/add-product-to-cart", {
+    fetch("https://lindas-shop.herokuapp.com/add-product-to-cart", {
       method : "POST",
       headers : {
         'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ export const deleteItem = (product) => {
     cartId : cartId
   }
   return (dispatch) => {
-    fetch('http://localhost:8080/delete-product-from-cart/'+cartId, {
+    fetch('https://lindas-shop.herokuapp.com/delete-product-from-cart/'+cartId, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
