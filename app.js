@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const pg = require('pg')
 const bodyParser = require('body-parser')
-
+const PORT = process.env.PORT || 5000
 let models = require('./models')
 
 app.use(bodyParser.urlencoded({extended : false}))
@@ -17,7 +17,7 @@ app.use(function(req,res, next) {
 
 
 
-const SERVER_CONFIGS = require('./constants/server')
+//const SERVER_CONFIGS = require('./constants/server')
 
 const configureServer = require('./server')
 const configureRoutes = require('./routes')
@@ -25,10 +25,7 @@ const configureRoutes = require('./routes')
 configureServer(app)
 configureRoutes(app)
 
-app.listen(SERVER_CONFIGS.PORT, error => {
-  if (error) throw error
-  console.log("Server running on port: " + SERVER_CONFIGS.PORT)
-})
+
 
 app.get('/', (req,res) => {
   res.send('hello server')
@@ -81,6 +78,11 @@ app.delete('/product/:productId', (req,res) => {
   }).then(() => res.send({message : "success"}))
 })
 
+
+app.listen(PORT, error => {
+  if (error) throw error
+  console.log("Server running on port: " + PORT)
+})
 
 //after all my routes//
 if (process.env.NODE_ENV === "production") {
