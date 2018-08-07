@@ -24,7 +24,11 @@ const configureRoutes = require('./routes')
 configureServer(app)
 configureRoutes(app)
 
+//after all my routes//
+if (process.env.NODE_ENV === "production") {
+app.use(express.static(path.join(__dirname, './lindas-shop-client/build')))
 
+}
 
 app.get('/', (req,res) => {
   res.send('hello server')
@@ -85,7 +89,6 @@ app.listen(SERVER_CONFIGS.PORT, error => {
 
 //after all my routes//
 if (process.env.NODE_ENV === "production") {
-app.use(express.static(path.join(__dirname, './lindas-shop-client/build')))
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
