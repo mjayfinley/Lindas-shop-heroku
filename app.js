@@ -3,7 +3,7 @@ const app = express();
 const pg = require('pg')
 const bodyParser = require('body-parser')
 const path = require("path")
-//let models = require('./models')
+let models = require('./models')
 
 app.use(bodyParser.urlencoded({extended : false}))
 app.use(bodyParser.json())
