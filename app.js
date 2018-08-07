@@ -82,9 +82,9 @@ app.delete('/product/:productId', (req,res) => {
 })
 
 
-app.listen(SERVER_CONFIGS.PORT, error => {
+app.listen(process.env.PORT || 5000, error => {
   if (error) throw error
-  console.log("Server running on port: " + SERVER_CONFIG.PORT)
+  console.log("Server running on port: " + process.env.PORT || 5000)
 })
 
 //after all my routes//
