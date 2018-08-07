@@ -26,7 +26,7 @@ configureRoutes(app)
 
 //after all my routes//
 if (process.env.NODE_ENV === "production") {
-app.use(express.static(path.join(__dirname, './lindas-shop-client/build')))
+  app.use(express.static(path.join(__dirname, './lindas-shop-client/build')))
 
 }
 
@@ -81,16 +81,15 @@ app.delete('/product/:productId', (req,res) => {
   }).then(() => res.send({message : "success"}))
 })
 
-
 app.listen(process.env.PORT || 5000, error => {
-  if (error) throw error
-  console.log("Server running on port: " + process.env.PORT || 5000)
+  console.log(error)
+  console.log("Server running on port: " + (process.env.PORT || 5000))
 })
 
 //after all my routes//
 if (process.env.NODE_ENV === "production") {
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
 }
