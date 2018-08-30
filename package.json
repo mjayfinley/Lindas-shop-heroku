@@ -4,10 +4,12 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "dev": "npm run dev",
     "start": "node app.js",
     "client": "npm start --prefix lindas-shop-client",
     "server": "nodemon app.js"
   },
+  "proxy": "http://localhost:5000",
   "author": "",
   "license": "ISC",
   "dependencies": {
