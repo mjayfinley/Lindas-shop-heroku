@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "majubptb",
-    "password": "aPRS5DUpkYsRMzbyze0gP_riF1-sosAF",
-    "database": "majubptb",
-    "host": "pellefant.db.elephantsql.com",
+    "username": "exqzmpqhlegfex",
+    "password": "986aa02fdacfb95c8d4a0c323abbf073bd594daaba018bdc27bd719b8912b9d5",
+    "database": "d85qbne04ih5oa",
+    "host": "ec2-54-227-247-225.compute-1.amazonaws.com",
     "dialect": "postgres"
   },
   "test": {
